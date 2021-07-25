@@ -1,13 +1,20 @@
 package com.example.tictactoe
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
+    val game = TicTacToe()
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -31,5 +38,24 @@ class MainActivity : AppCompatActivity() {
         val threeZero: Button = findViewById(R.id.three_one)
         val threeOne: Button = findViewById(R.id.three_two)
         val threeTwo: Button = findViewById(R.id.three_three)
+
+
+        zeroZero.setOnClickListener{
+            game.move(0,0)
+            zeroZero.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+    }
+
+    fun displayResult(player1Name: String, player2Name: String){
+        val playerName: String = if(game.turn == 'X') player1Name else player2Name
+
+        if(game.status == Status.WON){
+            Toast.makeText(this, "$playerName won the game", Toast.LENGTH_LONG).show()
+        }
+        else if(game.status == Status.DRAW){
+            Toast.makeText(this, "Draw: no more legal moves can be played", Toast.LENGTH_LONG).show()
+        }
     }
 }

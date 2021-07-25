@@ -4,7 +4,7 @@ import java.util.*
 
 class TicTacToe {
     private val board = Array(3){Array(3) {'-'} }
-    private var turn = 'X'
+    var turn = 'X'
     private var movesPlayed = 0
     var status = Status.ONGOING
 
