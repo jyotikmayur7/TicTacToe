@@ -4,4 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player One: O"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Player Two: X"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/p1_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:hint="P1 Name"
+        android:layout_marginTop="5dp"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toBottomOf="@+id/p1" />
+
+    <EditText
+        android:id="@+id/p2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:hint="P2 Name"
+        android:inputType="textPersonName"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/p2"
+        app:layout_constraintTop_toBottomOf="@+id/p2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
