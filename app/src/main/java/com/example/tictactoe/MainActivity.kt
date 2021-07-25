@@ -3,10 +3,12 @@ package com.example.tictactoe
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,27 +37,46 @@ class MainActivity : AppCompatActivity() {
         val oneTwo: Button = findViewById(R.id.two_three)
 
         //Third Row Buttons
-        val threeZero: Button = findViewById(R.id.three_one)
-        val threeOne: Button = findViewById(R.id.three_two)
-        val threeTwo: Button = findViewById(R.id.three_three)
+        val twoZero: Button = findViewById(R.id.three_one)
+        val twoOne: Button = findViewById(R.id.three_two)
+        val twoTwo: Button = findViewById(R.id.three_three)
 
+        val buttonArray = arrayOf(zeroZero, zeroOne, zeroTwo, oneZero, oneOne, oneTwo, twoZero, twoOne, twoTwo)
 
-        zeroZero.setOnClickListener{
-            game.move(0,0)
-            zeroZero.isEnabled = false
-            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        var x = 0
+        var y = 0
+
+        for(btn in buttonArray){
+            btn.setOnClickListener{
+                game.move(x,y)
+                y++
+                if(y == 3){
+                    x++
+                    y=0
+                }
+                setText(btn)
+                btn.isEnabled = false
+                displayResult(p1Name.text.toString(), p2Name.text.toString())
+            }
         }
-
     }
 
-    fun displayResult(player1Name: String, player2Name: String){
-        val playerName: String = if(game.turn == 'X') player1Name else player2Name
+    private fun displayResult(player1Name: String, player2Name: String){
+        val playerName: String = if(game.turn == 'X') player2Name else player1Name
 
         if(game.status == Status.WON){
+            disableAllButtons()
             Toast.makeText(this, "$playerName won the game", Toast.LENGTH_LONG).show()
         }
         else if(game.status == Status.DRAW){
+            disableAllButtons()
             Toast.makeText(this, "Draw: no more legal moves can be played", Toast.LENGTH_LONG).show()
         }
     }
+
+    private fun setText(btn: Button){
+        btn.text = if(game.turn.toString() == "X") "0" else "X"
+    }
+
+    private fun disableAllButtons(){}
 }

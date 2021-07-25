@@ -25,6 +25,7 @@ class TicTacToe {
             }
             if(wonInCurrentTurn){
                 status = Status.WON
+                toggleTurn()
                 return
             }
         }
@@ -40,6 +41,7 @@ class TicTacToe {
             }
             if(wonInCurrentTurn){
                 status = Status.WON
+                toggleTurn()
                 return
             }
         }
@@ -47,17 +49,20 @@ class TicTacToe {
         //Checking for diagonals
         if(board[0][0] == turn && board[1][1] == turn && board[2][2] == turn){
             status = Status.WON
+            toggleTurn()
             return
         }
 
         if(board[0][2] == turn && board[1][1] == turn && board[2][1] == turn){
             status = Status.WON
+            toggleTurn()
             return
         }
 
         // If all the moves are played and no one won
         if(movesPlayed == 9){
             status = Status.DRAW
+            toggleTurn()
             return
         }
 
