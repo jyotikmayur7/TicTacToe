@@ -165,12 +165,13 @@
         android:id="@+id/resetGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RESET BOARD"
-        android:textSize="11dp"
-        android:visibility="gone"
         android:layout_marginTop="30dp"
+        android:text="RESET BOARD"
+        android:textSize="9dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/p2_name"
         app:layout_constraintStart_toEndOf="@+id/p1_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
