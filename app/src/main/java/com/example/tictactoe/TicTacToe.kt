@@ -82,6 +82,7 @@ class TicTacToe {
         }
         status = Status.ONGOING
         movesPlayed = 0
+        turn = 'X'
     }
 
 }
