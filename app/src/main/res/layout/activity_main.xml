@@ -6,16 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/p1_name"
+    <Button
+        android:id="@+id/one_one"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:ems="5"
-        android:hint="P1 Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/p1"
-        app:layout_constraintTop_toBottomOf="@+id/p1" />
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/two_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p1_name" />
+
+    <Button
+        android:id="@+id/two_one"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/three_one"
+        app:layout_constraintStart_toStartOf="@+id/one_one"
+        app:layout_constraintTop_toBottomOf="@+id/one_one" />
+
+    <Button
+        android:id="@+id/three_one"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/two_one"
+        app:layout_constraintTop_toBottomOf="@+id/two_one" />
+
 
     <EditText
         android:id="@+id/p2_name"
@@ -27,6 +46,28 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/p2"
         app:layout_constraintTop_toBottomOf="@+id/p2" />
+
+    <EditText
+        android:id="@+id/p1_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ems="5"
+        android:hint="P1 Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toBottomOf="@+id/p1" />
+
+    <TextView
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:text="Player Two: X"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/p1" />
 
     <TextView
         android:id="@+id/p1"
@@ -40,14 +81,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/p2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="40dp"
-        android:text="Player Two: X"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/p1"
-        app:layout_constraintTop_toTopOf="@+id/p1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
