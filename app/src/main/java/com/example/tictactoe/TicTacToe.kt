@@ -74,4 +74,14 @@ class TicTacToe {
         if(turn == 'X') turn = 'O' else turn = 'X'
     }
 
+    fun resetGame(){
+        for(i in 0..2){
+            for(j in 0..2){
+                board[i][j] = '-'
+            }
+        }
+        status = Status.ONGOING
+        movesPlayed = 0
+    }
+
 }
