@@ -56,20 +56,20 @@ class MainActivity : AppCompatActivity() {
                 }
                 setText(btn)
                 btn.isEnabled = false
-                displayResult(p1Name.text.toString(), p2Name.text.toString())
+                displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray)
             }
         }
     }
 
-    private fun displayResult(player1Name: String, player2Name: String){
+    private fun displayResult(player1Name: String, player2Name: String, btnArray: Array<Button>){
         val playerName: String = if(game.turn == 'X') player2Name else player1Name
 
         if(game.status == Status.WON){
-            disableAllButtons()
+            disableAllButtons(btnArray)
             Toast.makeText(this, "$playerName won the game", Toast.LENGTH_LONG).show()
         }
         else if(game.status == Status.DRAW){
-            disableAllButtons()
+            disableAllButtons(btnArray)
             Toast.makeText(this, "Draw: no more legal moves can be played", Toast.LENGTH_LONG).show()
         }
     }
@@ -78,5 +78,9 @@ class MainActivity : AppCompatActivity() {
         btn.text = if(game.turn.toString() == "X") "0" else "X"
     }
 
-    private fun disableAllButtons(){}
+    private fun disableAllButtons(btnArray: Array<Button>){
+        for(btn in btnArray){
+            btn.isEnabled = false
+        }
+    }
 }
