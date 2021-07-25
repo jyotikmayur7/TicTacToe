@@ -45,31 +45,94 @@ class MainActivity : AppCompatActivity() {
 
         var x = 0
         var y = 0
+//        for(btn in buttonArray){
+//            btn.setOnClickListener{
+//                game.move(x,y)
+//                y++
+//                if(y==3){
+//                    x++
+//                    y=0
+//                }
+//                setText(btn)
+//                btn.isEnabled = false
+//                displayResult(p1Name.text.toString(), p2Name.text.toString())
+//            }
+//        }
 
-        for(btn in buttonArray){
-            btn.setOnClickListener{
-                game.move(x,y)
-                y++
-                if(y == 3){
-                    x++
-                    y=0
-                }
-                setText(btn)
-                btn.isEnabled = false
-                displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray)
-            }
+        zeroZero.setOnClickListener{
+            game.move(0,0)
+            setText(zeroZero)
+            zeroZero.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
         }
+
+        zeroOne.setOnClickListener{
+            game.move(0,1)
+            setText(zeroOne)
+            zeroOne.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        zeroTwo.setOnClickListener{
+            game.move(0,2)
+            setText(zeroTwo)
+            zeroTwo.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        oneZero.setOnClickListener{
+            game.move(1,0)
+            setText(oneZero)
+            oneZero.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        oneOne.setOnClickListener{
+            game.move(1,1)
+            setText(oneOne)
+            oneOne.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        oneTwo.setOnClickListener{
+            game.move(1,2)
+            setText(oneTwo)
+            oneTwo.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        twoZero.setOnClickListener{
+            game.move(2,0)
+            setText(twoZero)
+            twoZero.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        twoOne.setOnClickListener{
+            game.move(2,1)
+            setText(twoOne)
+            twoOne.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
+        twoTwo.setOnClickListener{
+            game.move(2,2)
+            setText(twoTwo)
+            twoTwo.isEnabled = false
+            displayResult(p1Name.text.toString(), p2Name.text.toString())
+        }
+
     }
 
-    private fun displayResult(player1Name: String, player2Name: String, btnArray: Array<Button>){
+    private fun displayResult(player1Name: String, player2Name: String){
         val playerName: String = if(game.turn == 'X') player2Name else player1Name
 
         if(game.status == Status.WON){
-            disableAllButtons(btnArray)
+            disableAllButtons()
             Toast.makeText(this, "$playerName won the game", Toast.LENGTH_LONG).show()
         }
         else if(game.status == Status.DRAW){
-            disableAllButtons(btnArray)
+            disableAllButtons()
             Toast.makeText(this, "Draw: no more legal moves can be played", Toast.LENGTH_LONG).show()
         }
     }
@@ -78,9 +141,5 @@ class MainActivity : AppCompatActivity() {
         btn.text = if(game.turn.toString() == "X") "0" else "X"
     }
 
-    private fun disableAllButtons(btnArray: Array<Button>){
-        for(btn in btnArray){
-            btn.isEnabled = false
-        }
-    }
+    private fun disableAllButtons(){}
 }
