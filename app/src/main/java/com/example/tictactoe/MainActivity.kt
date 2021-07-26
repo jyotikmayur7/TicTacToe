@@ -1,6 +1,7 @@
 package com.example.tictactoe
 
 import android.annotation.SuppressLint
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import java.util.*
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val p2Name: EditText = findViewById(R.id.p2_name)
         val p1TurnLabel: TextView = findViewById(R.id.p1)
         val p2TurnLabel: TextView = findViewById(R.id.p2)
+        changeTextColor(p1TurnLabel, p2TurnLabel)
         val resetGame: Button = findViewById(R.id.resetGame)
 
 
@@ -66,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             game.move(0,0)
             setText(zeroZero)
             zeroZero.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -73,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             game.move(0,1)
             setText(zeroOne)
             zeroOne.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -80,6 +85,7 @@ class MainActivity : AppCompatActivity() {
             game.move(0,2)
             setText(zeroTwo)
             zeroTwo.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -87,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             game.move(1,0)
             setText(oneZero)
             oneZero.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -94,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             game.move(1,1)
             setText(oneOne)
             oneOne.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -101,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             game.move(1,2)
             setText(oneTwo)
             oneTwo.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -108,6 +117,7 @@ class MainActivity : AppCompatActivity() {
             game.move(2,0)
             setText(twoZero)
             twoZero.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -115,6 +125,7 @@ class MainActivity : AppCompatActivity() {
             game.move(2,1)
             setText(twoOne)
             twoOne.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -122,6 +133,7 @@ class MainActivity : AppCompatActivity() {
             game.move(2,2)
             setText(twoTwo)
             twoTwo.isEnabled = false
+            changeTextColor(p1TurnLabel, p2TurnLabel)
             displayResult(p1Name.text.toString(), p2Name.text.toString(), buttonArray, resetGame)
         }
 
@@ -129,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             game.resetGame()
             enableAllButtons(buttonArray)
             resetGame.isGone = true
+            changeTextColor(p1TurnLabel, p2TurnLabel)
         }
 
     }
@@ -163,5 +176,21 @@ class MainActivity : AppCompatActivity() {
             btn.isEnabled = true
             btn.text = ""
         }
+    }
+
+    private fun changeTextColor(name_1: TextView, name_2: TextView){
+        if(game.turn.toString() == "X"){
+            name_1.setTextColor(ContextCompat.getColor(this, R.color.red))
+            name_1.setTypeface(null, Typeface.BOLD)
+            name_2.setTextColor(ContextCompat.getColor(this, R.color.black))
+            name_2.setTypeface(null, Typeface.NORMAL)
+        }
+        else{
+            name_2.setTextColor(ContextCompat.getColor(this, R.color.red))
+            name_2.setTypeface(null, Typeface.BOLD)
+            name_1.setTextColor(ContextCompat.getColor(this, R.color.black))
+            name_1.setTypeface(null, Typeface.NORMAL)
+        }
+
     }
 }
